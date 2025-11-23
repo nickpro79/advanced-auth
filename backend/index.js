@@ -1,13 +1,16 @@
-import express from 'express';
+import express from "express";
+import dotenv from "dotenv";
+import { connectDB } from "./db/connectDB.js";
+import authRoutes from "./routes/auth.route.js";
 
 const app = express();
-
-app.get('/', (req, res) => {
-  res.send('Hello World 123!');
+dotenv.config();
+app.get("/", (req, res) => {
+  res.send("Hello World 123!");
 });
+
+app.use("/api/auth", authRoutes);
 app.listen(3000, () => {
-  console.log('Server is running on port 3000');
+  connectDB();
+  console.log("Server is running on port 3000");
 });
-
-
-//fo3dFHgPgeXZx718
