@@ -1,4 +1,8 @@
 import FloatingShape from './components/FloatingShape';
+import { Routes, Route } from 'react-router-dom';
+import LoginPage from './pages/LoginPage';
+import SignUpPage from './pages/SignUpPage';
+
 function App() {
   return (
 		<div
@@ -9,6 +13,22 @@ function App() {
 			<FloatingShape color='bg-emerald-500' size='w-48 h-48' top='70%' left='80%' delay={5} />
 			<FloatingShape color='bg-lime-500' size='w-32 h-32' top='40%' left='-10%' delay={2} />
 
+      	<Routes>
+				<Route
+					path='/signup'
+					element={
+							<SignUpPage />
+					}
+				/>
+				<Route
+					path='/login'
+					element={
+							<LoginPage />
+					}
+				/>
+
+
+			</Routes>
     </div>
   );
 }
